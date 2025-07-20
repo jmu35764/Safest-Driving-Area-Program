@@ -5,38 +5,68 @@
 #include <string>
 using namespace std;
 
-void getRegInfo(string &region,int &accidents )
+void getRegInfo(string &region, int &num)
 {
-    cout << "Input the region name \n";
-    cin >> region;
-    cout << "Input the number of accidents \n";
-    cin >> accidents;
+	cout << "Enter the region \n";
+	cin >> region;
+	cout << "Enter the number of accidents \n";
+	cin >> num;
+	while (num <= 0)
+	{
+		cout << "Invalid Entry. Please enter a postive integer \n";
+		cin >> num;
+	}
 }
 
-bool isLower(int value1, int value2)
+bool isLower(int lower, int higher)
+{
+	return lower <= higher;
+}
 
+void showLowest(int acc_1, int acc_2, int acc_3, int acc_4, int acc_5, string region_1, string region_2, string region_3, string region_4, string region_5)
+{
+	int lowest = acc_1;
+	string safest = region_1;
+
+	if (isLower(acc_2, lowest))
+	{
+		lowest = acc_2;
+		safest = region_2;
+	}
+
+	if (isLower(acc_3, lowest))
+	{
+		lowest = acc_3;
+		safest = region_3;
+	}
+
+	if (isLower(acc_4, lowest))
+	{
+		lowest = acc_4;
+		safest = region_4;
+	}
+	if (isLower(acc_5, lowest))
+	{
+		lowest = acc_5;
+		safest = region_5;
+	}
+
+	cout << "The safest region is " << safest << endl;
+	cout << "with " << lowest << " accidents \n";
+}
 
 
 int main()
 {
-    string reg_1, reg_2, reg_3, reg_4, reg_5;
-    int acc_1, acc_2, acc_3, acc_4, acc_5;
+	string region1, region2, region3, region4, region5;
+	int acc1, acc2, acc3, acc4, acc5;
 
-    getRegInfo(reg_1, acc_1);
-    getRegInfo(reg_2, acc_2);
-    getRegInfo(reg_3, acc_3);
-    getRegInfo(reg_4, acc_4);
-    getRegInfo(reg_5, acc_5);
-    //cout << south << " " << s_acc << endl;
+	getRegInfo(region1, acc1);
+	getRegInfo(region2, acc2);
+	getRegInfo(region3, acc3);
+	getRegInfo(region4, acc4);
+	getRegInfo(region5, acc5);
+
+	showLowest(acc1, acc2, acc3, acc4, acc5, region1, region2, region3, region4, region5);
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
