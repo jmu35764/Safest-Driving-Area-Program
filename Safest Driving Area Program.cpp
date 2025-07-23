@@ -7,6 +7,8 @@ using namespace std;
 
 void getRegInfo(string &region, int &num)
 {
+	// This function allows the user to input the name of the region and the amount of accidents it had 
+
 	cout << "Enter the region \n";
 	cin >> region;
 	cout << "Enter the number of accidents \n";
@@ -18,13 +20,18 @@ void getRegInfo(string &region, int &num)
 	}
 }
 
-bool isLower(int lower, int higher)
+bool isLower(int lower, int higher) // Checks if the first value is lower than the second value
 {
 	return lower <= higher;
 }
 
 void showLowest(int acc_1, int acc_2, int acc_3, int acc_4, int acc_5, string region_1, string region_2, string region_3, string region_4, string region_5)
 {
+	// This function runs through all of the values from the inputs and checks which value is the lowest.
+	// When a lower value is found the value for the safest region is changed
+	// Once all regions have been sifted through, the name of the region and the accidents it had 
+	// will be shown
+
 	int lowest = acc_1;
 	string safest = region_1;
 
@@ -61,6 +68,8 @@ int main()
 	string region1, region2, region3, region4, region5;
 	int acc1, acc2, acc3, acc4, acc5;
 
+	//  Runs the get region function for each region
+	
 	getRegInfo(region1, acc1);
 	getRegInfo(region2, acc2);
 	getRegInfo(region3, acc3);
